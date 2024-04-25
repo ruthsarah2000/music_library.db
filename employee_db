@@ -1,0 +1,29 @@
+CREATE DATABASE employee_db;
+
+USE employee_db;
+
+CREATE TABLE Departments (
+department_id INT PRIMARY KEY,
+department_name VARCHAR(100)
+);
+
+CREATE TABLE Employees (
+employee_id INT PRIMARY KEY,
+employee_name VARCHAR(100),
+age INT,
+department_id INT,
+FOREIGN KEY (department_id) REFERENCES Departments(department_id)
+);
+
+SELECT DISTINCT department_name
+FROM Employees
+JOIN Departments ON Employees.department_id = Departments.department_id;
+
+SELECT Departments.department_name, COUNT(*) AS total_employees
+FROM Employees
+JOIN Departments ON Employees.department_id = Departments.department_id
+GROUP BY Departments.department_name;
+
+SELECT *
+FROM Employees
+WHERE age BETWEEN 25 AND 30;
