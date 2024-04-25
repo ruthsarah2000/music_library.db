@@ -1,0 +1,35 @@
+
+CREATE DATABASE fitness_center_db;
+
+USE fitness_center_db;
+
+CREATE TABLE Members (
+id INT PRIMARY KEY,
+member_name BOOLEAN NOT NULL,
+age INT,
+trainer_id INT,
+FOREIGN KEY (trainer_id) REFERENCES Trainer(id)
+);
+
+INSERT INTO Members (id, name, age, trainer_id)
+VALUES
+	  (1, 'John Smith', 30, 1),
+    (2, 'Jane Doe', 25, 2),
+    (3, 'Michael Johnson', 35, 1),
+    (4, 'Stanley Fry', 23, 3),
+    (5, 'Ben Gwen', 55, 1)
+    
+INSERT INTO WorkoutSessions (session_id, session_time, member_id
+	  (1, 'Morning', 1),  
+    (2, 'Evening', 2),  
+    (3, 'Morning', 3),  
+    (4, 'Midday', 4), 
+    (5, 'Evening', 5)
+                             
+UPDATE WorkoutSessions
+SET session_time = 'Evening'
+WHERE member_id = 2;
+
+DELETE FROM Members
+WHERE name = 'John Smith';
+                             
